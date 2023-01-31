@@ -34,9 +34,16 @@ forever(function () {
     }
 })
 forever(function () {
-    if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock`)) {
-        info.changeScoreBy(1)
-        tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+    if (big == 1) {
+        if (tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`transparency16`)) {
+            info.changeScoreBy(1)
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+        }
+    } else {
+        if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock`)) {
+            info.changeScoreBy(1)
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+        }
     }
 })
 forever(function () {
