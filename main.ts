@@ -1,18 +1,27 @@
 namespace SpriteKind {
     export const Mushroom = SpriteKind.create()
 }
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    side = 1
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    side = 2
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Mushroom, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Mushroom, effects.disintegrate, 100)
     big = 1
 })
 let muroom: Sprite = null
 let big = 0
+let side = 0
 scene.setBackgroundColor(9)
 let mario = sprites.create(assets.image`marlo`, SpriteKind.Player)
 controller.moveSprite(mario, 100, 0)
 tiles.setCurrentTilemap(tilemap`level`)
 info.setScore(0)
 tiles.placeOnRandomTile(mario, assets.tile`myTile14`)
+let goomb = sprites.create(assets.image`myImage1`, SpriteKind.Enemy)
+sprites.destroy(goomb)
 forever(function () {
     if (mario.tileKindAt(TileDirection.Center, assets.tile`myTile15`)) {
         game.over(false)
@@ -25,10 +34,18 @@ forever(function () {
     scene.centerCameraAt(mario.x, 400)
 })
 forever(function () {
-    if (big == 1) {
-        mario.setImage(assets.image`marlo1`)
+    if (side == 2) {
+        if (big == 1) {
+            mario.setImage(assets.image`marlo1`)
+        } else {
+            mario.setImage(assets.image`marlo`)
+        }
     } else {
-        mario.setImage(assets.image`marlo`)
+        if (big == 1) {
+            mario.setImage(assets.image`marlo1`)
+        } else {
+            mario.setImage(assets.image`marlo`)
+        }
     }
 })
 forever(function () {
@@ -88,4 +105,7 @@ forever(function () {
             tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
         }
     }
+})
+forever(function () {
+    goomb.follow(mario)
 })
