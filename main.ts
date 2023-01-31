@@ -15,6 +15,7 @@ let mario = sprites.create(assets.image`marlo`, SpriteKind.Player)
 controller.moveSprite(mario, 100, 0)
 tiles.setCurrentTilemap(tilemap`level`)
 info.setScore(0)
+tiles.placeOnRandomTile(mario, assets.tile`myTile14`)
 forever(function () {
     if (big == 1) {
         mario.setImage(assets.image`marlo1`)
@@ -26,18 +27,26 @@ forever(function () {
     mario.vy += 5
 })
 forever(function () {
-    scene.cameraFollowSprite(mario)
+    scene.centerCameraAt(mario.x, 400)
 })
 forever(function () {
     if (controller.up.isPressed() && mario.isHittingTile(CollisionDirection.Bottom)) {
-        mario.vy += -150
+        mario.vy += -160
     }
 })
 forever(function () {
     if (big == 1) {
-        if (tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`transparency16`)) {
+        if (0 > mario.vy && tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`brick`)) {
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`transparency16`)
+            tiles.setWallAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), false)
+        }
+    }
+})
+forever(function () {
+    if (big == 1) {
+        if (0 > mario.vy && tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock`)) {
             info.changeScoreBy(1)
-            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
         }
     } else {
         if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock`)) {
@@ -47,17 +56,39 @@ forever(function () {
     }
 })
 forever(function () {
-    if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock1`)) {
-        muroom = sprites.create(assets.image`myImage`, SpriteKind.Mushroom)
-        tiles.placeOnTile(muroom, mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top))
-        tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+    if (mario.tileKindAt(TileDirection.Center, assets.tile`myTile15`)) {
+        game.gameOver(false)
     }
 })
 forever(function () {
-    if (mario.tileKindAt(TileDirection.Top, assets.tile`brick`)) {
-        if (big == 1) {
-            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`transparency16`)
-            tiles.setWallAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), false)
+    if (big == 1) {
+        if (0 > mario.vy && tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock2`)) {
+            muroom = sprites.create(assets.image`myImage`, SpriteKind.Mushroom)
+            tiles.placeOnTile(muroom, mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top))
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+            tiles.setWallAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), true)
+        }
+    } else {
+        if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock2`)) {
+            muroom = sprites.create(assets.image`myImage`, SpriteKind.Mushroom)
+            tiles.placeOnTile(muroom, mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top))
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+            tiles.setWallAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), true)
+        }
+    }
+})
+forever(function () {
+    if (big == 1) {
+        if (0 > mario.vy && tiles.tileAtLocationEquals(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock1`)) {
+            muroom = sprites.create(assets.image`myImage`, SpriteKind.Mushroom)
+            tiles.placeOnTile(muroom, mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top))
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
+        }
+    } else {
+        if (mario.tileKindAt(TileDirection.Top, assets.tile`msyteryblock1`)) {
+            muroom = sprites.create(assets.image`myImage`, SpriteKind.Mushroom)
+            tiles.placeOnTile(muroom, mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top))
+            tiles.setTileAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top), assets.tile`msyteryblock0`)
         }
     }
 })
