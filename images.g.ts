@@ -22,25 +22,6 @@ namespace myImages {
 . . . e e e . . . . e e e . . . 
 . . e e e e . . . . e e e e . . 
 `;
-            case "image2":
-            case "myImage":return img`
-. . . . 2 2 2 2 1 1 1 1 . . . . 
-. . . 1 2 2 2 2 1 1 1 1 1 . . . 
-. . 1 1 1 2 2 2 2 1 1 1 1 1 . . 
-. 1 1 1 1 2 2 2 2 2 1 1 1 1 1 . 
-. 2 1 1 2 2 2 2 2 2 2 1 1 1 2 . 
-2 2 2 2 2 2 1 1 1 2 2 2 2 2 2 2 
-2 2 2 2 2 1 1 1 1 1 2 2 2 2 2 1 
-1 2 2 2 1 1 1 1 1 1 1 2 2 2 1 1 
-1 1 2 2 d d d d d d d d 2 2 1 1 
-. 1 2 d d f f d d f f d d 2 2 . 
-. . . d d f f d d f f d d . . . 
-. . . d d f f d d f f d d . . . 
-. . . d d f f d d f f d d . . . 
-. . . d d d d d d d d d d . . . 
-. . . d d d d d d d d d d . . . 
-. . . . d d d d d d d d . . . . 
-`;
             case "image3":
             case "myImage0":return img`
 . . . . . . . . . . . . . . . . 
@@ -180,6 +161,25 @@ e e e e d d d d d d d d e e e e
 ................
 ................
 ................
+`;
+            case "image2":
+            case "myImage":return img`
+. . . . 2 2 2 2 1 1 1 1 . . . . 
+. . . 1 2 2 2 2 1 1 1 1 1 . . . 
+. . 1 1 1 2 2 2 2 1 1 1 1 1 . . 
+. 1 1 1 1 2 2 2 2 2 1 1 1 1 1 . 
+. 2 1 1 2 2 2 2 2 2 2 1 1 1 2 . 
+2 2 2 2 2 2 1 1 1 2 2 2 2 2 2 2 
+2 2 2 2 2 1 1 1 1 1 2 2 2 2 2 1 
+1 2 2 2 1 1 1 1 1 1 1 2 2 2 1 1 
+1 1 2 2 d d d d d d d d 2 2 1 1 
+. 1 2 d d f f d d f f d d 2 2 . 
+. . . d d f f d d f f d d . . . 
+. . . d d f f d d f f d d . . . 
+. . . d d f f d d f f d d . . . 
+. . . d d d d d d d d d d . . . 
+. . . d d d d d d d d d d . . . 
+. . . . d d d d d d d d . . . . 
 `;
         }
         return null;
