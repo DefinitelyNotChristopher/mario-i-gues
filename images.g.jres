@@ -39,6 +39,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "marlo2"
     },
+    "image9": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAA7gDgAAAAAODuDu4AAAAA7u7d7gAAAADu3t3tAAAAAO7e3w0AAAAA7t7fDQAAAADu3t0NAAAAAO7e3Q0AAAAA7t7fDQAAAADu3t8NAAAAAO7e3e0AAAAA7u7d7gAAAADg7g7uAAAAAADuAOAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dead goomb"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

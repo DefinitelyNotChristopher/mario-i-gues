@@ -62,6 +62,13 @@ forever(function () {
     }
 })
 forever(function () {
+    if (mario.overlapsWith(goomb)) {
+        goomb.setImage(assets.image`dead goomb`)
+        big = 0
+        sprites.destroy(goomb)
+    }
+})
+forever(function () {
     goomb.vy += 1000
 })
 forever(function () {

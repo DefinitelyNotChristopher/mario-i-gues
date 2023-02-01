@@ -251,6 +251,25 @@ e e e e d d d d d d d d e e e e
 . . . e e e . . . . e e e . . . 
 . . e e e e . . . . e e e e . . 
 `;
+            case "image9":
+            case "dead goomb":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . e e e e e e e e e e . . . 
+. . e e e e e e e e e e e e . . 
+. e e e e e e e e e e e e e e . 
+. e e e d d d d d d d d e e e . 
+. . e d d f f d d f f d d e . . 
+. . . d d d d d d d d d d . . . 
+. . e e d d d d d d d d e e . . 
+. e e e e . . . . . . e e e e . 
+`;
         }
         return null;
     })
