@@ -21,7 +21,7 @@ tiles.setCurrentTilemap(tilemap`level`)
 info.setScore(0)
 tiles.placeOnRandomTile(mario, assets.tile`myTile14`)
 let goomb = sprites.create(assets.image`myImage1`, SpriteKind.Enemy)
-sprites.destroy(goomb)
+tiles.placeOnRandomTile(goomb, assets.tile`myTile17`)
 forever(function () {
     if (mario.tileKindAt(TileDirection.Center, assets.tile`myTile15`)) {
         game.over(false)
@@ -60,6 +60,9 @@ forever(function () {
             tiles.setWallAt(mario.tilemapLocation().getNeighboringLocation(CollisionDirection.Top).getNeighboringLocation(CollisionDirection.Top), false)
         }
     }
+})
+forever(function () {
+    goomb.vy += 1000
 })
 forever(function () {
     if (big == 1) {
